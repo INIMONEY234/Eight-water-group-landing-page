@@ -210,3 +210,109 @@ form label {
     width: 100%;
 }
 
+
+@media (max-width: 1024px) {
+
+    /* NAV becomes vertical */
+    #topPart {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    #topRight {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #topRight a {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    /* MAIN SECTION */
+    #mainPart {
+        padding-top: 150px;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    #mainPart h1, 
+    #mainPart p {
+        width: 80%;
+        margin: auto;
+    }
+
+    /* MID PART */
+    #midPart {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    #midPartRight img {
+        width: 90%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    /* SERVICES SECTION */
+    #midPart2 img {
+        width: 90%;
+        height: auto;
+    }
+
+    /* FORM */
+    form {
+        width: 70%;
+    }
+}
+
+/* =============================== */
+/*       SMALL DEVICES — PHONES    */
+/* =============================== */
+@media (max-width: 600px) {
+
+    #topLeft h1 {
+        font-size: 32px;
+    }
+
+    #mainPart h1{
+        margin-bottom: 20px;
+    }
+
+    #logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    #services {
+        font-size: 24px;
+    }
+
+    #midPartRight img,
+    #midPart2 img {
+        width: 80%;
+        height: auto;
+    }
+
+    #mainPart {
+        height: 250px;
+    } 
+
+    form {
+        width: 65%;
+    }
+
+    form h3 {
+        font-size: 26px;
+    }
+
+    #btn-submit {
+        font-size: 20px;
+        padding: 15px;
+    }
+}
+
