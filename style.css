@@ -6,15 +6,53 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/* =============================== */
+/*          STICKY NAVBAR          */
+/* =============================== */
 #topPart {
-    display: flex;
+    display: flex; 
     justify-content: space-around;
-    margin-top: 30px;
-    padding: auto;
     color: brown;
     align-items: center;
+    position: sticky;
+    top: 0; 
+    z-index: 1000;
+    padding: 15px 0; 
+    background-color: greenyellow; /* IMPORTANT for sticky */
+    width: 100%; /* Ensures full-width sticky */
 }
 
+#hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+#hamburger span {
+    width: 30px;
+    height: 4px;
+    background-color: brown;
+    border-radius: 4px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Animation when active */
+#hamburger.active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+#hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+
+/* NAV LEFT */
 #topLeft h1 {
     color: brown;
     font-size: 46px;
@@ -27,6 +65,12 @@ body {
     gap: 10px;
 }
 
+/* NAV RIGHT */
+#topRight {
+    display: flex;
+    align-items: center;
+}
+
 #topRight a{
     padding: 20px;
     font-weight: bold;
@@ -37,22 +81,23 @@ body {
 }
 
 #topRight a:hover{
-    font-weight: bold;
     text-decoration: underline; 
-    color: brown; 
-    font-size: 16px;
-    cursor: pointer;
     border-radius: 8px;
 }
 
-
+/* =============================== */
+/*          MAIN PART               */
+/* =============================== */
 #mainPart {
   background-image: url(./homepage-photo.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 390px;
   max-width: 100%;
   position: relative;
+  padding-top: 110px; /* increased because nav is sticky */
+  padding-left: 480px;
+  align-items: center;
 }
 
 #mainPart::before {
@@ -62,7 +107,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity here */
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
@@ -71,36 +116,24 @@ body {
   z-index: 2;
 }
 
-
+/* LOGO */
 #logo {
     width: 50px;
     height: 50px; 
 }
 
-#mainPart{
-    padding-top: 280px;
-    padding-left: 480px;
-    align-items: center;
-}
-
-#mainPart h1{
+/* Text inside main banner */
+#mainPart h1,
+#mainPart p {
     color: brown;
     background-color: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 12px;
     width: 330px;
     align-items: center;
 }
 
-#mainPart p{
-    color: brown;
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    width: 330px;
-    align-items: center;
-} 
-
+/* MID PART */
 #midPart {
     background-color: white;
     color: brown;
@@ -114,11 +147,7 @@ body {
     margin-bottom: 40px;
 }
 
-#midPartLeft h3 {
-    text-decoration: underline;
-    font-weight: bold;
-}
-
+/* MIDPART RIGHT IMG */
 #midPartRight img {
     border: 2px solid brown;
     height: 400px;
@@ -126,6 +155,7 @@ body {
     border-radius: 12px;
 }
 
+/* SECOND MID SECTION */
 #midPart2 {
     display: flex;
     flex-direction: column;
@@ -140,13 +170,13 @@ body {
     justify-content: space-around;
     width: 100%;
     margin-bottom: 30px;
-    align-items: center;
     text-align: center;
     display: flex;
     font-size: 34px;
     text-decoration: underline;
 }
 
+/* Service Images */
 #midPart2 img {
     border: 2px solid brown;
     height: 400px;
@@ -154,6 +184,7 @@ body {
     border-radius: 12px; 
 }
 
+/* Form Section */
 form {
     width: 400px;
     display: flex;
@@ -181,7 +212,6 @@ form label {
 } 
 
 #btn-submit {
-    margin: auto;
     padding: 30px;
     border-radius: 13px;
     width: 100%;
@@ -199,6 +229,7 @@ form label {
     background-color: lawngreen;
 }
 
+/* Footer */
 #site {
     padding-top: 30px;
     padding-bottom: 60px; 
@@ -206,14 +237,14 @@ form label {
     background-color: brown;
     font-weight: bold;
     text-align: center;
-    margin: auto;
     width: 100%;
 }
 
-
+/* =============================== */
+/*        TABLET — 1024px          */
+/* =============================== */
 @media (max-width: 1024px) {
 
-    /* NAV becomes vertical */
     #topPart {
         flex-direction: column;
         gap: 20px;
@@ -231,47 +262,77 @@ form label {
         font-size: 18px;
     }
 
-    /* MAIN SECTION */
     #mainPart {
-        padding-top: 150px;
+        padding-top: 180px;
         padding-left: 0;
         text-align: center;
     }
 
     #mainPart h1, 
     #mainPart p {
-        width: 80%;
+        width: 70%;
         margin: auto;
     }
 
-    /* MID PART */
     #midPart {
         flex-direction: column;
         text-align: center;
-        padding-top: 20px;
-        padding-bottom: 20px;
     }
 
     #midPartRight img {
         width: 90%;
         height: auto;
-        margin-top: 20px;
     }
 
-    /* SERVICES SECTION */
     #midPart2 img {
         width: 90%;
         height: auto;
     }
 
-    /* FORM */
     form {
         width: 70%;
+    }
+
+     #hamburger {
+        display: flex;
+    }
+
+    #topRight {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: greenyellow;
+        padding-bottom: 20px;
+        border-bottom: 2px solid brown;
+        animation: fadeDown 0.3s ease-in-out;
+    }
+
+    /* Show menu when active */
+    #topRight.active {
+        display: flex;
+    }
+
+    /* Animation */
+    @keyframes fadeDown {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    #topRight a {
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    #topPart {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
     }
 }
 
 /* =============================== */
-/*       SMALL DEVICES — PHONES    */
+/*        PHONE — 600px            */
 /* =============================== */
 @media (max-width: 600px) {
 
@@ -279,14 +340,14 @@ form label {
         font-size: 32px;
     }
 
-    #mainPart h1{
-        margin-bottom: 20px;
-    }
-
     #logo {
         width: 30px;
         height: 30px;
     }
+
+    #hamburger { 
+        width: 90px;
+    } 
 
     #services {
         font-size: 24px;
@@ -295,12 +356,19 @@ form label {
     #midPartRight img,
     #midPart2 img {
         width: 80%;
-        height: auto;
+        height: 90%;
     }
 
     #mainPart {
-        height: 250px;
+        height: 280px; 
+        margin-bottom: 25px;
+        margin-top: 5px;
     } 
+
+    #mainPart h1 {
+        margin-top: 10px;
+        margin-bottom: 5px; 
+    }
 
     form {
         width: 65%;
@@ -315,4 +383,3 @@ form label {
         padding: 15px;
     }
 }
-
